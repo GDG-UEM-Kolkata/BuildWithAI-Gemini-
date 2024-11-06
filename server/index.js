@@ -7,10 +7,13 @@ const {  GoogleGenerativeAI } = require("@google/generative-ai");
 dotenv.config();
 const app = express();
 const port = 5000;
-
+const cors = require('cors')
 // Set up Multer for file uploads
 const upload = multer({ dest: "uploads/" });
-
+app.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  credentials:true
+}));
 // Endpoint for generating caption
 app.post("/generate-caption", upload.single("image"), async (req, res) => {
   try {
@@ -32,7 +35,7 @@ app.post("/generate-caption", upload.single("image"), async (req, res) => {
 
     // Generate caption for the uploaded image
     const result = await model.generateContent([
-      "Generate a descriptive caption for this image.",
+      "Generate a short creative sarcastic caption for this image.",
       {
         fileData: {
           fileUri: uploadResult.file.uri,
