@@ -27,9 +27,23 @@ function ImageCaptionGenerator() {
   };
 
   return (
-    <div>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-      {loading ? <p>Loading...</p> : <p>Caption: {caption}</p>}
+    <div className="max-w-xl mx-auto p-4 bg-white rounded-lg shadow-lg ">
+      <h1 className="text-2xl font-semibold text-center text-gray-800 mb-6">Image Caption Generator</h1>
+      
+      <div className="flex justify-center mb-4">
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+          className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+      </div>
+
+      {loading ? (
+        <p className="text-center text-blue-500">Loading...</p>
+      ) : (
+        <p className="text-center text-gray-700 mt-4">{caption}</p>
+      )}
     </div>
   );
 }

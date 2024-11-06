@@ -6,8 +6,8 @@ function App() {
  
 
   return (
-  <div>
-     <h1>Image Caption Generator</h1>
+  <div className='bg-black h-screen w-full flex items-center'>
+    
      <ImageCaptionGenerator />
   </div>
   )
