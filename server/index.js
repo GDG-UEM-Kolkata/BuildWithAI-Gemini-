@@ -20,7 +20,7 @@ app.post("/generate-caption", upload.single("image"), async (req, res) => {
     const filePath = req.file.path;
 
     // Initialize GoogleAIFileManager to upload the image
-    console.log(process.env.GEMINI_API_KEY,"ENV")
+    // console.log(process.env.GEMINI_API_KEY,"ENV")
     const fileManager = new GoogleAIFileManager(process.env.GEMINI_API_KEY);
     const uploadResult = await fileManager.uploadFile(filePath, {
       mimeType: "image/jpeg",
