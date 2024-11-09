@@ -28,7 +28,7 @@ function ImageCaptionGenerator() {
     setCooldown(true);
     setRemainingTime(10);
     try {
-      const response = await axios.post("http://localhost:3000/generate-caption", formData, {
+      const response = await axios.post("http://localhost:5000/generate-caption", formData, {
         headers: { "Content-Type": "multipart/form-data"
          },
       });
